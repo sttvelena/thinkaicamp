@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Think &amp; Create AI Camp • Ages 8–12</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap');
+
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .heading { font-family: 'Space Grotesk', sans-serif; }
+
+    .hero-bg {
+      background: linear-gradient(135deg, #1E1B4B 0%, #2A2A8E 50%, #1E3A8A 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow-orange { text-shadow: 0 0 30px #FF6B1A, 0 0 60px #FF6B1A; }
+
+    .glass {
+      background: rgba(255,255,255,0.09);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .star { position: absolute; color: rgba(255,255,255,0.25); animation: twinkle 4s infinite alternate; }
+    @keyframes twinkle { from {opacity: 0.2;} to {opacity: 0.7;} }
+
+    .cta {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cta:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 30px 50px -15px rgb(255 107 26 / 0.5);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+    }
+    .accordion-open .accordion-content {
+      max-height: 520px;
+    }
+
+    .accordion-open .read-more-text { display: none; }
+    .accordion-open .read-less-text { display: inline; }
+    .read-less-text { display: none; }
+  </style>
+  <script>
+    function toggleAccordion(el) {
+      const isOpen = el.classList.contains('accordion-open');
+      document.querySelectorAll('.accordion').forEach(a => a.classList.remove('accordion-open'));
+      if (!isOpen) el.classList.add('accordion-open');
+    }
+  </script>
+</head>
+<body class="bg-[#1E1B4B] text-white">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 w-full z-50 bg-[#1E1B4B]/95 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 bg-gradient-to-br from-orange-500 to-pink-500 rounded-3xl flex items-center justify-center text-3xl shadow-xl">🤖</div>
+        <span class="heading text-3xl font-bold tracking-tighter">Think &amp; Create AI</span>
+      </div>
+      <div class="hidden md:flex gap-10 text-sm font-medium">
+        <a href="#program" class="hover:text-[#00D4FF]">Program</a>
+        <a href="#results" class="hover:text-[#00D4FF]">What Kids Get</a>
+        <a href="#pricing" class="hover:text-[#00D4FF]">Pricing</a>
+        <a href="#faq" class="hover:text-[#00D4FF]">FAQ</a>
+      </div>
+      <a href="#pricing" class="px-8 py-4 bg-white text-black font-semibold rounded-3xl hover:bg-orange-400 transition">Join Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-bg min-h-screen pt-28 flex items-center relative">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="star text-6xl top-20 left-12">✦</div>
+      <div class="star text-5xl top-52 right-16">✧</div>
+      <div class="star text-7xl bottom-40 left-1/3">✦</div>
+      <div class="star text-4xl bottom-28 right-1/4">✧</div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8">
+        <div class="inline-flex items-center gap-3 bg-white/10 border border-white/30 px-6 py-3 rounded-3xl">
+          <span class="text-emerald-400 animate-pulse">●</span>
+          <span class="font-semibold">Only 10 kids per group • June–July 2026</span>
+        </div>
+
+        <h1 class="heading text-6xl lg:text-7xl font-bold leading-none tracking-tighter">
+          Your child will create <span class="glow-orange">their own AI-powered movie</span> in just 5 days
+        </h1>
+
+        <p class="text-2xl text-[#C0C8FF] max-w-lg">
+          Live online AI summer camp for ages 8–12.<br>
+          No coding required. Pure creativity and fun.<br>
+          <span class="text-lg text-[#A0AAFF]">Safety guidelines and interactive AI safety games included in every activity.</span>
+        </p>
+
+        <div class="glass rounded-3xl p-10 mb-16">
+          <p class="text-lg font-medium mb-6">Early Bird Price: $199 (ends May 25)</p>
+          <form class="space-y-5">
+            <input type="text" placeholder="Child's Name" class="w-full bg-white/10 border border-white/30 rounded-2xl px-7 py-5 focus:outline-none focus:border-[#00D4FF] text-lg">
+            <input type="email" placeholder="Parent Email" class="w-full bg-white/10 border border-white/30 rounded-2xl px-7 py-5 focus:outline-none focus:border-[#00D4FF] text-lg">
+            <select class="w-full bg-[#2A2775] border border-white/30 rounded-2xl px-7 py-5 focus:outline-none focus:border-[#00D4FF] text-lg text-white">
+              <option value="s1">Session 1 — June 11–15, 2026 (10am–12pm PT)</option>
+              <option value="s2">Session 2 — June 18–22, 2026 (10am–12pm PT)</option>
+              <option value="s3" disabled style="color:#9ca3af;">Session 3 — June 22–26, 2026 (10am–12pm PT) — Registration opens soon</option>
+              <option value="s4" disabled style="color:#9ca3af;">Session 4 — June 29 – July 3, 2026 (10am–12pm PT) — Registration opens soon</option>
+            </select>
+            <button type="button" onclick="alert('Redirect to checkout in real version')"
+                    class="cta w-full py-7 bg-gradient-to-r from-[#FF6B1A] via-orange-500 to-pink-500 text-2xl font-bold rounded-3xl text-black">
+              Reserve Spot for $199 →
+            </button>
+          </form>
+          <p class="text-center text-sm mt-5 opacity-75">Only 7 spots left at Early Bird price</p>
+        </div>
+      </div>
+
+      <div class="relative flex justify-center">
+        <img src="image_0.png" alt="Friendly AI Robot"
+             class="rounded-3xl shadow-2xl border border-white/20 w-full max-w-md">
+        <div class="absolute -top-8 -left-8 glass px-8 py-6 rounded-3xl text-center shadow-xl">
+          <div class="text-6xl mb-2">🚀</div>
+          <div class="font-bold text-2xl">Ages 8–12</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM -->
+  <section id="program" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="heading text-6xl font-bold text-center mb-6">5-Day Camp Schedule</h2>
+      <p class="text-center text-xl text-[#C0C8FF] max-w-2xl mx-auto mb-12">
+        No boring theory. Just two hours of creating, playing, and discovering what AI can actually do.
+      </p>
+
+      <div class="space-y-6">
+        <!-- Day 1 -->
+        <div class="glass rounded-3xl overflow-hidden accordion">
+          <div onclick="toggleAccordion(this.parentElement)" class="p-8 flex justify-between items-center cursor-pointer hover:bg-white/5">
+            <div class="flex items-center gap-6">
+              <div class="text-5xl font-bold text-orange-400">01</div>
+              <div class="font-semibold text-2xl">Welcome to AI World</div>
+            </div>
+            <span class="text-sm text-[#00D4FF] font-medium select-none">
+              <span class="read-more-text">Read more ↓</span>
+              <span class="read-less-text">Close ↑</span>
+            </span>
+          </div>
+          <div class="accordion-content">
+            <div class="px-8 pb-8 text-[#C0C8FF]">
+            <ul class="list-disc list-inside space-y-3 text-lg">
+              <li>What AI is, how it works, and what it can do, with real examples kids already use</li>
+              <li>A tour of the tools we'll use all week</li>
+              <li>AI safety rules: what's safe to share and what must stay private</li>
+              <li>Interactive game "Can I share this?" to test what we learned</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="glass rounded-3xl overflow-hidden accordion">
+          <div onclick="toggleAccordion(this.parentElement)" class="p-8 flex justify-between items-center cursor-pointer hover:bg-white/5">
+            <div class="flex items-center gap-6">
+              <div class="text-5xl font-bold text-orange-400">02</div>
+              <div class="font-semibold text-2xl">AI Creative Partner</div>
+            </div>
+            <span class="text-sm text-[#00D4FF] font-medium select-none">
+              <span class="read-more-text">Read more ↓</span>
+              <span class="read-less-text">Close ↑</span>
+            </span>
+          </div>
+          <div class="accordion-content">
+            <div class="px-8 pb-8 text-[#C0C8FF]">
+            <ul class="list-disc list-inside space-y-3 text-lg">
+              <li>How to work with AI as a partner, not just give it tasks</li>
+              <li>Prompt writing basics: what makes a great prompt</li>
+              <li>Generate images using text descriptions</li>
+              <li>Create your own character: name, look, personality</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="glass rounded-3xl overflow-hidden accordion">
+          <div onclick="toggleAccordion(this.parentElement)" class="p-8 flex justify-between items-center cursor-pointer hover:bg-white/5">
+            <div class="flex items-center gap-6">
+              <div class="text-5xl font-bold text-orange-400">03</div>
+              <div class="font-semibold text-2xl">Storytelling Magic</div>
+            </div>
+            <span class="text-sm text-[#00D4FF] font-medium select-none">
+              <span class="read-more-text">Read more ↓</span>
+              <span class="read-less-text">Close ↑</span>
+            </span>
+          </div>
+          <div class="accordion-content">
+            <div class="px-8 pb-8 text-[#C0C8FF]">
+            <ul class="list-disc list-inside space-y-3 text-lg">
+              <li>Write a short story featuring your character</li>
+              <li>Compose original background music</li>
+              <li>Record a voiceover</li>
+              <li>Assemble your first rough video</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="glass rounded-3xl overflow-hidden accordion">
+          <div onclick="toggleAccordion(this.parentElement)" class="p-8 flex justify-between items-center cursor-pointer hover:bg-white/5">
+            <div class="flex items-center gap-6">
+              <div class="text-5xl font-bold text-orange-400">04</div>
+              <div class="font-semibold text-2xl">Think Before You Trust</div>
+            </div>
+            <span class="text-sm text-[#00D4FF] font-medium select-none">
+              <span class="read-more-text">Read more ↓</span>
+              <span class="read-less-text">Close ↑</span>
+            </span>
+          </div>
+          <div class="accordion-content">
+            <div class="px-8 pb-8 text-[#C0C8FF]">
+            <ul class="list-disc list-inside space-y-3 text-lg">
+              <li>How to recognize generated photos, audio, and video</li>
+              <li>Game "Real or not?"</li>
+              <li>How scammers use AI tools</li>
+              <li>Basic video editing</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="glass rounded-3xl overflow-hidden accordion">
+          <div onclick="toggleAccordion(this.parentElement)" class="p-8 flex justify-between items-center cursor-pointer hover:bg-white/5">
+            <div class="flex items-center gap-6">
+              <div class="text-5xl font-bold text-orange-400">05</div>
+              <div class="font-semibold text-2xl">Final Project Showcase</div>
+            </div>
+            <span class="text-sm text-[#00D4FF] font-medium select-none">
+              <span class="read-more-text">Read more ↓</span>
+              <span class="read-less-text">Close ↑</span>
+            </span>
+          </div>
+          <div class="accordion-content">
+            <div class="px-8 pb-8 text-[#C0C8FF]">
+            <ul class="list-disc list-inside space-y-3 text-lg">
+              <li>Final editing session: finish your mini-film or illustrated book</li>
+              <li>Present your project to the group</li>
+              <li>Parents join the last 20 minutes for the showcase</li>
+              <li>Certificate of completion for every participant</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Safety Block — light card with sticker icons -->
+      <div class="relative mt-20">
+        <!-- AI chip sticker — top-left corner, tilted left -->
+        <img src="image_1.png" alt="AI"
+             style="position:absolute;top:-28px;left:-24px;width:80px;transform:rotate(-8deg);
+                    filter:drop-shadow(3px 3px 0 white) drop-shadow(-3px -3px 0 white)
+                           drop-shadow(3px -3px 0 white) drop-shadow(-3px 3px 0 white)
+                           drop-shadow(5px 0 0 white) drop-shadow(-5px 0 0 white)
+                           drop-shadow(0 5px 0 white) drop-shadow(0 -5px 0 white);
+                    z-index:10;">
+        <!-- Rubik's cube sticker — bottom-right corner, tilted right -->
+        <img src="image_3.png" alt="Rubik's cube"
+             style="position:absolute;bottom:-28px;right:-24px;width:80px;transform:rotate(6deg);
+                    filter:drop-shadow(3px 3px 0 white) drop-shadow(-3px -3px 0 white)
+                           drop-shadow(3px -3px 0 white) drop-shadow(-3px 3px 0 white)
+                           drop-shadow(5px 0 0 white) drop-shadow(-5px 0 0 white)
+                           drop-shadow(0 5px 0 white) drop-shadow(0 -5px 0 white);
+                    z-index:10;">
+        <div class="rounded-3xl p-12 bg-white text-[#1E1B4B] shadow-2xl">
+          <h3 class="text-3xl font-bold mb-8 text-center">While your child builds projects and has fun, they'll also learn skills most kids don't get anywhere else:</h3>
+          <ul class="space-y-4 text-lg max-w-3xl mx-auto">
+            <li>• How to use AI safely and responsibly</li>
+            <li>• What personal information should never be shared with AI</li>
+            <li>• How to spot AI-generated images, audio, and video</li>
+            <li>• How scammers use AI — and how not to fall for it</li>
+            <li>• How to build their own personal AI safety rules</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT KIDS GET -->
+  <section id="results" class="py-24 bg-[#1A1844]">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="heading text-6xl font-bold text-center mb-12">What Your Child Will Take Home</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Left: girl photo -->
+        <div class="flex justify-center">
+          <img src="image_4.png" alt="Happy child"
+               class="rounded-3xl shadow-2xl w-full max-w-xs object-cover">
+        </div>
+        <!-- Right: skills list -->
+        <div>
+          <h3 class="heading text-3xl font-bold mb-8">Skills for life and school</h3>
+          <ul class="space-y-5 text-lg">
+            <li class="flex items-start gap-4">
+              <span class="text-2xl">🎨</span>
+              <span>Professional AI-generated art &amp; their own character</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-2xl">🎬</span>
+              <span>Complete mini-movie or illustrated book</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-2xl">🎵</span>
+              <span>Original AI-composed soundtrack</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-2xl">🛡️</span>
+              <span>Real AI safety skills for life</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="text-2xl">🏆</span>
+              <span>Official Completion Certificate</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REQUIRED -->
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="heading text-5xl font-bold text-center mb-12">What You Need for the Camp</h2>
+      <div class="glass rounded-3xl p-12 space-y-8">
+        <div>
+          <h3 class="text-2xl font-semibold mb-4">🔑 Required: Syntx.ai Subscription</h3>
+          <p class="text-lg">All AI tools live inside one safe, kid-friendly platform — <strong>Syntx.ai</strong>.</p>
+          <p class="mt-4">$18/month • Only 1 month needed • Cancel anytime</p>
+          <p class="mt-6">We'll send you a simple step-by-step setup guide before Day 1. Takes under 5 minutes.</p>
+        </div>
+        <div class="pt-8 border-t border-white/20 space-y-6 text-lg">
+          <div>💻 Computer or laptop with camera &amp; microphone</div>
+          <div>📹 Free Zoom account</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="py-24 bg-[#1A1844]">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="heading text-6xl font-bold text-center mb-16">Choose Your Experience</h2>
+      <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto items-stretch">
+        <!-- Live Camp card -->
+        <div class="glass rounded-3xl p-12 flex flex-col text-center">
+          <div class="inline-block bg-orange-500 text-black font-bold px-8 py-3 rounded-2xl mb-6 self-center">LIVE CAMP • EARLY BIRD</div>
+          <div class="text-7xl font-bold mb-2">$199</div>
+          <p class="text-2xl text-gray-300 mb-4">Regular $249</p>
+          <p class="mb-8">10:00 am – 12:00 pm PT • Mon–Fri</p>
+          <div class="mt-auto">
+            <button onclick="alert('Redirect to checkout')" class="cta w-full py-7 bg-gradient-to-r from-orange-500 to-pink-500 text-2xl font-bold rounded-3xl text-black">
+              Enroll in Live Camp
+            </button>
+          </div>
+        </div>
+
+        <!-- Self-paced card -->
+        <div class="glass rounded-3xl p-12 flex flex-col text-center border border-white/30">
+          <div class="inline-block bg-white/20 font-bold px-8 py-3 rounded-2xl mb-6 self-center">SELF-PACED</div>
+          <div class="text-7xl font-bold mb-2">$69</div>
+          <p class="text-2xl text-gray-300 mb-4">&nbsp;</p>
+          <p class="mb-8">Learn at your own pace • 10+ lessons</p>
+          <div class="mt-auto">
+            <button onclick="alert('Redirect to checkout')" class="cta w-full py-7 bg-white/10 hover:bg-white/20 border border-white/40 text-2xl font-bold rounded-3xl">
+              Get Self-Paced Course
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="py-24">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row gap-12 items-center">
+      <div class="md:w-1/2 flex justify-center">
+        <img src="About_me_photo.png" alt="Camp Creator"
+             class="rounded-3xl shadow-2xl w-full max-w-sm object-cover">
+      </div>
+      <div class="md:w-1/2">
+        <h2 class="heading text-5xl font-bold mb-8">About the Camp Creator</h2>
+        <p class="text-xl text-[#C0C8FF]">
+          This camp was created by an AI professional with experience on projects at xAI and OpenAI, and a mom of two.
+          That combination makes all the difference. Every lesson was built with care, curiosity, and a deep belief that
+          children deserve to grow up confident, creative, and safe in an AI-powered world.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 bg-[#1A1844]">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="heading text-6xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+      <div class="space-y-8">
+
+        <details class="glass rounded-3xl p-8">
+          <summary class="font-semibold text-xl cursor-pointer">What prior experience does my child need to join the camp?</summary>
+          <p class="mt-6 text-[#C0C8FF]">No experience is needed. The camp is designed for beginners aged 8 to 12. We'll teach everything from scratch in a fun and simple way.</p>
+        </details>
+
+        <details class="glass rounded-3xl p-8">
+          <summary class="font-semibold text-xl cursor-pointer">Why is Syntx.ai required?</summary>
+          <div class="mt-6 text-[#C0C8FF] space-y-4">
+            <p>Instead of signing up for five different platforms and hitting free-tier limits on each one, your child works inside a single subscription that includes everything: image generation, music, voiceover, text, and more — all in one place.</p>
+            <p class="font-semibold text-white">Here's why it makes sense:</p>
+            <ul class="space-y-3 ml-2">
+              <li>• <strong class="text-white">One login, one subscription.</strong> No juggling accounts for Midjourney, Suno, ElevenLabs, or Claude separately.</li>
+              <li>• <strong class="text-white">No free-tier limits.</strong> Kids can create freely without hitting paywalls mid-lesson.</li>
+              <li>• <strong class="text-white">Saves money.</strong> Individual subscriptions to these tools would cost significantly more than $18/month combined.</li>
+              <li>• <strong class="text-white">Simple and safe.</strong> One parent account, one place, easy to manage.</li>
+            </ul>
+            <p>During the camp we'll also show how individual tools like Midjourney, Claude, Suno, and NanoBanana work on their own, so kids understand the AI landscape. For hands-on project work, we'll use Syntx.ai throughout the week.</p>
+            <p>You can cancel your Syntx.ai subscription at any time. One month is all you need.</p>
+          </div>
+        </details>
+
+        <details class="glass rounded-3xl p-8">
+          <summary class="font-semibold text-xl cursor-pointer">What if my child misses a day?</summary>
+          <p class="mt-6 text-[#C0C8FF]">All sessions are recorded and shared privately with families.</p>
+        </details>
+
+        <details class="glass rounded-3xl p-8">
+          <summary class="font-semibold text-xl cursor-pointer">Is it really safe?</summary>
+          <p class="mt-6 text-[#C0C8FF]">Safety is our top priority, and we cover this topic in detail on the very first day of the course. Nevertheless, we recommend that parents periodically take an interest in what their child is doing during lessons and, if necessary, personally monitor the learning process and regularly discuss with their children what they are doing on the computer. We cannot track each child's actions individually, so your involvement is the best guarantee of safety.</p>
+        </details>
+
+        <details class="glass rounded-3xl p-8">
+          <summary class="font-semibold text-xl cursor-pointer">Do I need to stay with my child during the online classes?</summary>
+          <p class="mt-6 text-[#C0C8FF]">No, you don't need to. The teacher leads the entire class, and the platform is safe. Parents can drop in anytime, but it's not required.</p>
+        </details>
+
+        <details class="glass rounded-3xl p-8">
+          <summary class="font-semibold text-xl cursor-pointer">How many children will be in one group?</summary>
+          <p class="mt-6 text-[#C0C8FF]">We keep groups small, usually between 6 to 10 kids, so the teacher can give personal attention to each child.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#13114A] border-t border-white/10 py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
+      <span>© 2026 ThinkAI Camp. All rights reserved.</span>
+      <a href="/privacy-policy" class="hover:text-white transition">Privacy Policy</a>
+      <span>Contact: <a href="mailto:thinkaicamp@gmail.com" class="hover:text-white transition">thinkaicamp@gmail.com</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>
